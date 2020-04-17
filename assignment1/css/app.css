@@ -10,8 +10,8 @@ body{
 header{
 	display:flex;
 	justify-content: space-between;
-	align-items: center;
-	margin:0.5em 2em;
+	width:85%;
+	margin:auto;
 }
 
 ul{
@@ -30,6 +30,11 @@ p{
 	padding-top:10px;
 	text-align: center;
 	max-width: 600px;
+}
+
+
+.titleLogo{
+	align-self: center;
 }
 
 .banner{
@@ -83,6 +88,13 @@ p{
 	}
 	ul{
 		display:inline;
+		padding:0;
 	}
 
 }
+
+/*@media (min-width: 1200px){
+	header{
+		width:75%;
+	}
+}*/
