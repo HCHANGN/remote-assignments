@@ -3,7 +3,7 @@ import React from 'react';
 class App extends React.Component {
   state={
     welcomeMessage:"Welcome Message",
-
+    lowerContentStatus:"container noShow"
   }
 
   toggleWelcome = ()=>{
@@ -21,6 +21,12 @@ class App extends React.Component {
   closeMenu = ()=>{
     this.setState({
       navMenuStatus:""
+    })
+  }
+
+  newContent = ()=>{
+    this.setState({
+      lowerContentStatus:"container"
     })
   }
 
@@ -54,8 +60,8 @@ class App extends React.Component {
             <p className="col">Content Box 3</p>
             <p className="col">Content Box 4</p>
           </div>
-          <a className="footer">Call to Action</a>
-          <div className="container noShow">
+          <a className="footer" onClick={this.newContent}>Call to Action</a>
+          <div className={this.state.lowerContentStatus}>
             <p className="col">Content Box 5</p>
             <p className="col">Content Box 6</p>
             <p className="col">Content Box 7</p>
