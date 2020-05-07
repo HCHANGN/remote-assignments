@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    <script>
+        console.log("start");
+        function ajax(src, callback){
+            // your code here
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = ()=>{
+                if(xhr.readyState===4 && xhr.status ===200){
+                    let data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    callback(data);
+                }
+            }
+            xhr.open('get',src);
+            xhr.send();
+        }
+        function render(data){
+            // your code here.
+            console.log("ok");
+            let p = document.createElement("p");
+            for(i=0;i<data.length;i++){
+                p.textContent+=`${data[i].name} 售價：${data[i].price} 商品特色：${data[i].description}`;
+            }
+            
+            let currentDiv= document.getElementById("div1");
+            currentDiv.appendChild(p);
+            
+            // ​document.createElement()​ and a​ppendChild()​ are preferred. No ​innerHTML​ or // something alike
+        }
+        ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function(response){
+            render(response);
+        });
+
+            // you should get product information in JSON format and render data in the page
+
+        //ajax("https://cwpeng.github.io/live-records-samples/data/products.json");
+    </script>
+</body>
+</html>
