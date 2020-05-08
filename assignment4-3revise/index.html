@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+  state={
+    welcomeMessage:"Welcome Message",
+    lowerContentStatus:"container noShow"
+  }
+
+  toggleWelcome = ()=>{
+    this.setState({
+      welcomeMessage:"Have a Good Time!",
+      navMenuStatus:"toggleMenu"
+    })
+  }
+
+  toggleMenu = ()=>{
+    this.setState({
+      navMenuStatus:"navMenu"
+    }) 
+  }
+  closeMenu = ()=>{
+    this.setState({
+      navMenuStatus:""
+    })
+  }
+
+  newContent = ()=>{
+    this.setState({
+      lowerContentStatus:"container"
+    })
+  }
+
+  render(){
+    return(
+      <div className="App">   
+          <header>
+            <a className="titleLogo">Website Title / Logo</a>
+            <img src="Burger_Menu.svg" className="navIcon" onClick={this.toggleMenu}/>
+            <ul className={this.state.navMenuStatus}>
+              <li className="closeIcon" onClick={this.closeMenu}>X</li>
+              <li>item 1</li>
+              <li>item 2</li>
+              <li>item 3</li>
+              <li>item 4</li>
+            </ul>
+            <ul className="underMenu">
+              <li>item 1</li>
+              <li>item 2</li>
+              <li>item 3</li>
+              <li>item 4</li>
+            </ul>
+          </header>
+          <div className="banner">
+            <h2 onClick={this.toggleWelcome}>{this.state.welcomeMessage}</h2>
+          </div>
+          <h3 className="sectionTitle">Section Title</h3>
+          <div className="container">
+            <p className="col">Content Box 1</p>
+            <p className="col">Content Box 2</p>
+            <p className="col">Content Box 3</p>
+            <p className="col">Content Box 4</p>
+          </div>
+          <a className="footer" onClick={this.newContent}>Call to Action</a>
+          <div className={this.state.lowerContentStatus}>
+            <p className="col">Content Box 5</p>
+            <p className="col">Content Box 6</p>
+            <p className="col">Content Box 7</p>
+            <p className="col">Content Box 8</p>
+          </div>
+      </div>
+    )}
+}
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+
+    </script>
+
+  </body>
+</html>
