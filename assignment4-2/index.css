@@ -1,0 +1,40 @@
+body{
+    display:flex;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+span{
+    border:2px solid blue;
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.5em grey;
+    margin:1em;
+    padding: 1em;
+}
+
+#div1 {
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.5em grey;
+    display:flex;
+    justify-content: space-around;
+    width:80%;
+    height:90%;
+    margin:1em;
+}
+
+.title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.price {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.desc {
+    text-align: center;
+}
+
+

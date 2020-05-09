@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
     <title>Document</title>
     
 </head>
 <body>
     <div id="div1">
-
     </div>
     <script>
         console.log("start");
@@ -27,14 +27,26 @@
         }
         function render(data){
             // your code here.
-            console.log("ok");
-            let p = document.createElement("p");
             for(i=0;i<data.length;i++){
-                p.textContent+=`${data[i].name} 售價：${data[i].price} 商品特色：${data[i].description}`;
+                let newDiv1 = document.createElement("div");
+                let newDiv2 = document.createElement("div");
+                let newDiv3 = document.createElement("div");
+                let newSpan = document.createElement("span");
+                let currentDiv= document.getElementById("div1");
+                let currentSpan =currentDiv.appendChild(newSpan);
+                currentSpan.appendChild(newDiv1);
+                currentSpan.appendChild(newDiv2);
+                currentSpan.appendChild(newDiv3);
+
+                newDiv1.className="title";
+                newDiv2.className="price";
+                newDiv3.className="desc";
+
+                newDiv1.textContent=data[i].name;
+                newDiv2.textContent='NT$'+data[i].price;
+                newDiv3.textContent=data[i].description;
+                
             }
-            
-            let currentDiv= document.getElementById("div1");
-            currentDiv.appendChild(p);
             
             // ​document.createElement()​ and a​ppendChild()​ are preferred. No ​innerHTML​ or // something alike
         }
